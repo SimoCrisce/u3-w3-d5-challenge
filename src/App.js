@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import "./assets/style.css";
+import { Provider } from "react-redux";
 
 function App() {
   return (

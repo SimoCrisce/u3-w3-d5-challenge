@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import { useDispatch } from "react-redux";
+import { getSongAction } from "../redux/actions";
 
 const Fetch = function (props) {
+  const dispatch = useDispatch();
+
   const [songs, setSongs] = useState(null);
   const fetchSongs = () => {
     fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + props.artist)
@@ -31,7 +34,7 @@ const Fetch = function (props) {
                 <div className="d-flex flex-column align-items-center mt-2">
                   <img
                     onClick={() => {
-                      console.log(song.id);
+                      dispatch(getSongAction(song));
                     }}
                     src={song.artist.picture}
                     className="mb-2"

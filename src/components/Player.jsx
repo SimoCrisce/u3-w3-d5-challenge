@@ -1,21 +1,22 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useSelector } from "react-redux";
+
 const Player = function () {
+  const song = useSelector((state) => {
+    return state.song;
+  });
   return (
     <Container fluid className="fixed-bottom bg-container pt-1">
       <Row className="h-100">
         <Col lg={(10, { offset: 2 })}>
           <Row className="h-100 justify-content-center align-items-center">
             <Col className="d-flex justify-content-start align-items-center text-white">
-              <img
-                src="https://images.rockol.it/ZydwPi4O0rGlXmSPtYF9EClKM30=/1200x1200/smart/rockol-img/img/foto/upload/olvdlvlq.jpeg"
-                alt=""
-                width={"50px"}
-              />
+              <img src={song.artist.picture} alt="" width={"50px"} />
               <div className="d-flex flex-column ms-3">
-                <span className="fw-bold">Sfera</span>
-                <span>Famoso</span>
+                <span className="fw-bold">{song.artist.name}</span>
+                <span>{song.title}</span>
               </div>
             </Col>
             <Col xs={6} md={4} className="playerControls">

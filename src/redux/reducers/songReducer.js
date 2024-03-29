@@ -9,9 +9,11 @@ const songReducer = function (state = initialState, action) {
     case GET_SONG:
       return {
         ...state,
-        song: state.song.concat(action.payload),
+        song: action.payload,
       };
     default:
       return state;
   }
 };
+
+export default songReducer;
